@@ -59,7 +59,7 @@ Clarity AI Agent is a Visual Studio Code extension that revolutionizes the devel
 ### Testing a Contract
 
 1. Navigate to the "Testing" tab
-2. Select the contract to test (nft.clar, collection.clar, wallet.clar, auth.clar)
+2. Select the contract to test (example: nft.clar, collection.clar, wallet.clar, auth.clar)
 3. Click "Run Tests" to execute the automated tests
 4. Review the test results in the bottom panel
 

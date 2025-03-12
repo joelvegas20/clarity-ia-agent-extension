@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#121212] text-white">
+    <div class="flex h-screen">
+        <div class="flex flex-col h-[40%] rounded rounded-md mt-5 bg-[#101010] text-white  items-center justify-center p-2 shadow border border-[#D45D13] font-bold">
+            <div class=" active flex flex-col items-center p-2 mb-4 rounded cursor-pointer hover:bg-gray-700" id="builder-btn">
+                <div class="text-2xl">📜</div>
+                <div class="text-xs mt-1">Builder</div>
+            </div>
+            <div class="flex flex-col items-center p-2 mb-4 rounded cursor-pointer hover:bg-gray-700" id="testing-btn">
+                <div class="text-2xl">🧪</div>
+                <div class="text-xs mt-1">Testing</div>
+            </div>
+            <div class="flex flex-col items-center p-2 mb-4 rounded cursor-pointer hover:bg-gray-700" id="deployment-btn">
+                <div class="text-2xl">🚀</div>
+                <div class="text-xs mt-1">Deployment</div>
+            </div>
+        </div>
+        
+        <div class="p-4 overflow-auto">
+            <div id="section-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

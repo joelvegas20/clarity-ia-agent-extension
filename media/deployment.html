@@ -1,0 +1,59 @@
+<div class="flex flex-col gap-8">
+    <div class="border border-white p-6">
+        <h2 class="text-xl font-normal mb-2">Enter a private key wallet</h2>
+        <hr class="border border-white mb-4 opacity-70">
+        <div class="flex flex-col">
+            <input type="text" class="flex-1 p-2 bg-transparent rounded-l h-[50rem]" placeholder="5J3mBbAH58CerP3bYcfS6zWu7md2pKQvD8....">
+        </div>
+    </div>
+
+    <div class="border border-white p-6">
+        <h2 class="text-xl font-normal mb-2">Choose Network</h2>
+        <hr class="border border-white mb-4 opacity-70">
+        <div class="flex flex-col font-semibold">
+            <select id="network-selector" class="flex-1 p-2 bg-transparent border border-white rounded mb-4 text-white">
+                <option value="mainnet">Stacks Mainnet</option>
+                <option value="testnet">Stacks Testnet</option>
+                <option value="devnet">Stacks Devnet</option>
+            </select>
+        </div>
+    </div>
+    <button class="w-[20%] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:border-[#D45D13]">
+        Deploy
+    </button>
+    <div class="bg-transparent p-4 rounded border border-white shadow">
+        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded">
+[INFO] Initializing deployment process...
+[INFO] Validating private key wallet...
+[INFO] Wallet successfully validated.
+[INFO] Checking selected network: Stacks Mainnet.
+[INFO] Fetching contract details...
+[INFO] Compiling Clarity smart contract...
+[INFO] Contract compiled successfully.
+[INFO] Checking contract syntax and logic...
+[INFO] No syntax errors detected.
+[INFO] Running static analysis for potential vulnerabilities...
+[INFO] No critical vulnerabilities found.
+[INFO] Preparing deployment plan...
+[INFO] Resolving contract dependencies...
+[INFO] Dependencies resolved.
+[INFO] Estimating transaction fees...
+[INFO] Estimated fee: 0.0015 STX
+[INFO] Checking wallet balance...
+[INFO] Wallet balance: 5.4321 STX
+[INFO] Balance sufficient for deployment.
+[INFO] Generating deployment transaction...
+[INFO] Transaction hash: 0x9f2c...b7e3
+[INFO] Broadcasting transaction to Stacks Mainnet...
+[INFO] Sending transaction to mempool...
+[INFO] Transaction sent successfully.
+[INFO] Waiting for transaction confirmation...
+[INFO] Checking transaction status...
+[INFO] Transaction pending...
+[INFO] Transaction included in block #2457893.
+[INFO] Confirmations: 1/6
+[INFO] Confirmations: 2/6
+[INFO] Confirmations: 3/6
+        </pre>
+    </div>
+</div>

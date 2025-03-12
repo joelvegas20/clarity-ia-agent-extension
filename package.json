@@ -1,0 +1,67 @@
+{
+  "name": "clarity-explorer",
+  "displayName": "Clarity Explorer",
+  "description": "Explore and interact with Clarity smart contracts",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:clarityExplorerView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "clarity-explorer",
+          "title": "Clarity Explorer",
+          "icon": "media/clarity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "clarity-explorer": [
+        {
+          "type": "webview",
+          "id": "clarityExplorerView",
+          "name": "Clarity AI Agent"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "clarityExplorer.showBuilder",
+        "title": "Show Builder",
+        "category": "Clarity AI Agent"
+      },
+      {
+        "command": "clarityExplorer.showTesting",
+        "title": "Show Testing",
+        "category": "Clarity AI Agent"
+      },
+      {
+        "command": "clarityExplorer.showDeployment",
+        "title": "Show Deployment",
+        "category": "Clarity AI Agent"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^4.5.5"
+  }
+}

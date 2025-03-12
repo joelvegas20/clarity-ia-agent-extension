@@ -1,0 +1,66 @@
+<div class="flex flex-col gap-8">
+    <div class="border border-gray-500 p-6">
+        <h2 class="text-xl font-normal mb-2">Write a unit test for :</h2>
+        <hr class="border border-gray-500 mb-4 opacity-70">
+        <div class="border border-orange-500 p-4">
+            <label class="flex items-center mb-2">
+                <input type="checkbox" class="mr-2">
+                <span>nft.clar</span>
+            </label>
+            <label class="flex items-center mb-2">
+                <input type="checkbox" class="mr-2">
+                <span>collection.clar</span>
+            </label>
+            <label class="flex items-center mb-2">
+                <input type="checkbox" class="mr-2 bg-orange-500" checked>
+                <span class="text-orange-500">wallet.clar</span>
+            </label>
+            <label class="flex items-center">
+                <input type="checkbox" class="mr-2">
+                <span>auth.clar</span>
+            </label>
+        </div>
+        <button class="mt-4 px-4 py-2 border border-gray-500">&lt; &gt;</button>
+    </div>
+    
+    <div class="bg-transparent p-4 rounded border border-white shadow">
+        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded">(define-constant ERR_INTERNAL "Something was wrong")
+
+            ;; listing errors
+            (define-constant ERR_EXPIRY_IN_PAST (err u1000))
+            
+            ;; data maps
+            (define-map users-map
+            principal
+            {
+            picture: (string-ascii 256),
+            address: principal
+            }
+            )
+            
+            ;; public functions
+            (define-public (login (user-address principal) (user-picture (string-ascii 256)))
+            (let ((user-data (map-get? users-map user-address)))
+            (if (is-none user-data)
+                (let ((register-result (register user-address user-picture)))
+                    (if (is-ok register-result)
+                        (ok SUCCESS_REGISTER)
+                        (err ERR_INTERNAL)
+                    )
+                )
+                (ok SUCCESS_LOGIN)
+            )
+            )
+            )
+            
+            ;; read only functions
+            (define-read-only (get-user-data (user-address principal))
+            (let ((user-data (map-get? users-map user-address)))
+            (if (is-none user-data)
+                (err ERR_USER_NOT_EXIST)
+                (ok user-data)
+            )
+            )
+            )</pre>
+    </div>
+</div>

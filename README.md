@@ -121,6 +121,12 @@ project/
 
 If you encounter any issues or have suggestions to improve Clarity AI Agent, please open an issue in the GitHub repository.
 
+## Contributors
+
+- Jonathan Nolasco -
+- Joel vegas -
+- Oriol Palacios -
+
 
 ## Useful Links
 

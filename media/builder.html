@@ -5,49 +5,12 @@
         <div class="flex flex-col">
             <input type="text" class="flex-1 p-2 bg-transparent rounded-l h-[50rem]" placeholder="Ask me about your new clarity smart contract...">
             <div class="">
-                <button class="bg-transparent border border-white text-white px-4 py-2 rounded-md mt-4">&lt; &gt;</button>
+                <button id="generate-contracts-btn" class="bg-transparent border border-white text-white px-4 py-2 rounded-md mt-4">Generate Contracts</button>
             </div>
         </div>
     </div>
     
     <div class="bg-transparent p-4 rounded border border-white shadow">
-        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded">(define-constant ERR_INTERNAL "Something was wrong")
-
-;; listing errors
-(define-constant ERR_EXPIRY_IN_PAST (err u1000))
-
-;; data maps
-(define-map users-map
-principal
-{
-picture: (string-ascii 256),
-address: principal
-}
-)
-
-;; public functions
-(define-public (login (user-address principal) (user-picture (string-ascii 256)))
-(let ((user-data (map-get? users-map user-address)))
-(if (is-none user-data)
-    (let ((register-result (register user-address user-picture)))
-        (if (is-ok register-result)
-            (ok SUCCESS_REGISTER)
-            (err ERR_INTERNAL)
-        )
-    )
-    (ok SUCCESS_LOGIN)
-)
-)
-)
-
-;; read only functions
-(define-read-only (get-user-data (user-address principal))
-(let ((user-data (map-get? users-map user-address)))
-(if (is-none user-data)
-    (err ERR_USER_NOT_EXIST)
-    (ok user-data)
-)
-)
-)</pre>
+        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded"></pre>
     </div>
 </div>

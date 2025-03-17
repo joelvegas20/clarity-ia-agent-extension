@@ -58,6 +58,7 @@ export class ClarityAIAgentViewProvider implements vscode.WebviewViewProvider {
         }
 
         try {
+            await this._runCommand(`clarinet requirements add  SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait`, projectRoot);
             await this._runCommand(`clarinet deployments generate --${network} --low-cost`, projectRoot);
 
             const applyCmd = `clarinet deployments apply --${network} --no-dashboard`;
@@ -120,8 +121,6 @@ export class ClarityAIAgentViewProvider implements vscode.WebviewViewProvider {
         if (!this._view) return;
 
         const dataJsonPath = vscode.Uri.joinPath(this._extensionUri, 'media', 'data.json').fsPath;
-
-        this._sendErrorMessage(dataJsonPath);
 
         this._sendLogMessage(`🔍 Looking for data.json at: ${dataJsonPath}`);
 

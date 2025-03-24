@@ -1,9 +1,9 @@
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-8 w-full">
     <div class="border border-white p-6">
-        <h2 class="text-xl font-normal mb-2">Enter a private key wallet</h2>
+        <h2 class="text-xl font-normal mb-2">Enter a Mnemonic Wallet</h2>
         <hr class="border border-white mb-4 opacity-70">
         <div class="flex flex-col">
-            <input type="text" id="private-key-input" class="flex-1 p-2 bg-transparent border border-white rounded text-white" placeholder="5J3mBbAH58CerP3bYcfS6zWu7md2pKQvD8....">
+            <input type="text" id="private-key-input" class="flex-1 p-2 bg-transparent border border-white rounded text-white" placeholder="Enter your Mnemonic" />
         </div>
     </div>
 
@@ -18,12 +18,10 @@
             </select>
         </div>
     </div>
-    <button id="deploy-button" class="w-[20%] bg-transparent border border-white text-white px-4 py-2 rounded-md hover:border-[#D45D13] hover:text-[#D45D13] transition-colors">
+    <button id="deploy-button" class="w-1/4 bg-transparent border cursor-not-allowed border-white text-white px-4 py-2 rounded-md hover:border-[#D45D13] hover:text-[#D45D13] transition-colors">
         Deploy
     </button>
     <div class="bg-transparent p-4 rounded border border-white shadow">
-        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded text-white">
-[INFO] Waiting for deployment...
-        </pre>
+        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded text-white"></pre>
     </div>
 </div>

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { ClarityAIAgentViewProvider } from './ui/ClarityAIAgentViewProvider';
+import { ClarityAIAgentViewProvider } from './core/ClarityAIAgentViewProvider';
 
 export function activate(context: vscode.ExtensionContext) {
     const provider = new ClarityAIAgentViewProvider(context.extensionUri);

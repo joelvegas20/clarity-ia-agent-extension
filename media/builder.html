@@ -1,16 +1,52 @@
-<div>
-    <div class="border border-white p-6 mb-6">
+<div class="flex flex-col gap-8 w-full">
+    <div class=" border border-white p-6 mb-6">
         <h2 class="text-xl font-normal mb-2">Describe Clarity Contract</h2>
         <hr class="border border-white mb-4 opacity-70">
         <div class="flex flex-col">
-            <input type="text" class="flex-1 p-2 bg-transparent rounded-l h-[50rem]" placeholder="Ask me about your new clarity smart contract...">
+            <textarea id="prompt-input" class="flex-1 p-2 bg-transparent rounded-l min-h-[100px] max-h-[400px] resize-y overflow-auto"
+                placeholder="Ask me about your new clarity smart contract..."></textarea>
             <div class="">
-                <button id="generate-contracts-btn" class="bg-transparent border border-white text-white px-4 py-2 rounded-md mt-4">Generate Contracts</button>
+                <button id="generate-contracts-btn" disabled class="bg-transparent border border-white text-white px-4 py-2 rounded-md mt-4
+           disabled:opacity-50 disabled:cursor-not-allowed">
+                    Generate Contracts
+                </button>
             </div>
         </div>
     </div>
 
-    <div class="bg-transparent p-4 rounded border border-white shadow">
-        <pre id="code-preview" class="text-sm overflow-x-auto bg-transparent p-4 rounded">// Waiting for contract...</pre>
+    <div id="code-preview-container" class="bg-transparent p-4 rounded border border-white shadow hidden">
+        <pre id="code-preview"
+            class="text-sm overflow-x-auto bg-transparent p-4 rounded language-clarity">// Waiting for contract...</pre>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const textarea = document.querySelector('textarea');
+        const button = document.getElementById('generate-contracts-btn');
+
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+
+        function toggleButton() {
+            if (textarea.value.trim() === '') {
+                button.disabled = true;
+                button.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                button.disabled = false;
+                button.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        textarea.addEventListener('input', function () {
+            autoResize.call(this);
+            toggleButton();
+        });
+
+        // Inicialmente forzamos ambas funciones
+        autoResize.call(textarea);
+        toggleButton();
+    });
+</script>

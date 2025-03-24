@@ -31,6 +31,7 @@
     function initSection() {
         const generateContractsBtn = document.getElementById('generate-contracts-btn');
         const codePreview = document.getElementById("code-preview");
+        const promptInput = document.getElementById("prompt-input");
 
         // if (loadedContracts.length > 0) {
         //     showContractPreview();
@@ -53,7 +54,8 @@
                 setTimeout(() => {
                     vscode.postMessage({
                         command: "generateContracts",
-                        contracts: loadedContracts
+                        contracts: loadedContracts,
+                        prompt: promptInput ? promptInput.value.trim() : ''
                     });
                 }, 4000);
             });
@@ -181,3 +183,82 @@
     updateActiveSection('builder');
     setTimeout(initSection, 100);
 })();
+
+
+
+// import { BuilderService } from '../src/core/BuilderService.js';
+// import { DeploymentService } from '../src/core/DeploymentService.js';
+
+// (function () {
+//     const vscode = acquireVsCodeApi();
+//     let loadedContracts = vscode.getState()?.loadedContracts || [];
+
+//     const builderService = new BuilderService(vscode, loadedContracts);
+//     const deploymentService = new DeploymentService(vscode);
+
+//     const sidebarItems = {
+//         builder: document.getElementById('builder-btn'),
+//         testing: document.getElementById('testing-btn'),
+//         deployment: document.getElementById('deployment-btn')
+//     };
+
+//     for (const [section, element] of Object.entries(sidebarItems)) {
+//         if (element) {
+//             element.addEventListener('click', () => {
+//                 vscode.postMessage({ command: 'switchSection', section });
+//                 updateActiveSection(section);
+//             });
+//         }
+//     }
+
+//     function updateActiveSection(section) {
+//         for (const btn of Object.values(sidebarItems)) {
+//             btn?.classList.remove('active');
+//         }
+//         sidebarItems[section]?.classList.add('active');
+//     }
+
+//     function onSectionChanged(section) {
+//         if (section === 'builder') builderService.init();
+//         if (section === 'deployment') deploymentService.init();
+//     }
+
+//     window.addEventListener('message', (event) => {
+//         const message = event.data;
+//         const generateBtn = document.getElementById('generate-contracts-btn');
+
+//         switch (message.command) {
+//             case 'deploymentLog':
+//                 deploymentService.appendLog(message.log);
+//                 break;
+//             case 'deploymentError':
+//                 deploymentService.appendLog(`[ERROR] ${message.error}`);
+//                 break;
+//             case 'deploymentComplete':
+//                 deploymentService.appendLog('[INFO] Deployments completed!');
+//                 break;
+//             case 'sectionChanged':
+//                 updateActiveSection(message.section);
+//                 setTimeout(() => onSectionChanged(message.section), 100);
+//                 break;
+//             case 'contractsGenerated':
+//                 builderService.handleContractsGenerated(message.results);
+//                 if (generateBtn) {
+//                     // generateBtn.disabled = false;
+//                     generateBtn.innerHTML = 'Generate Contracts';
+//                 }
+//                 break;
+//             case 'loadContracts':
+//                 loadedContracts = Array.isArray(message.contracts) ? message.contracts : [message.contracts];
+//                 vscode.setState({ loadedContracts });
+//                 if (generateBtn) {
+//                     // generateBtn.disabled = false;
+//                     generateBtn.innerHTML = 'Generate Contracts';
+//                 }
+//                 break;
+//         }
+//     });
+
+//     updateActiveSection('builder');
+//     setTimeout(() => onSectionChanged('builder'), 100);
+// })();

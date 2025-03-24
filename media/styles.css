@@ -1,0 +1,80 @@
+/* Add this to your styles.css file */
+
+/* Code block styling */
+pre[class*="language-"] {
+    background: #282c34 !important; /* VS Code-like dark background */
+    border-radius: 6px;
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-shadow: none;
+  }
+  
+  /* Token styling - customize for Clarity language */
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #6a9955; /* VS Code comment green */
+  }
+  
+  .token.punctuation {
+    color: #d4d4d4; /* Light gray */
+  }
+  
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol {
+    color: #b5cea8; /* VS Code number green */
+  }
+  
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin {
+    color: #ce9178; /* VS Code string brown/orange */
+  }
+  
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    color: #d4d4d4; /* Light gray */
+    background: none;
+  }
+  
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    color: #569cd6; /* VS Code keyword blue */
+  }
+  
+  .token.function,
+  .token.class-name {
+    color: #dcdcaa; /* VS Code function yellow */
+  }
+  
+  .token.regex,
+  .token.important {
+    color: #d16969; /* VS Code regex red */
+  }
+  
+  /* Custom Clarity-specific syntax */
+  .token.lisp-keyword {
+    color: #c586c0; /* VS Code control keyword purple */
+  }
+  
+  /* If you want to define a custom language for Clarity instead of using Lisp */
+  .language-clarity .token.function {
+    color: #dcdcaa; /* VS Code function yellow */
+  }
+  
+  .language-clarity .token.keyword {
+    color: #569cd6; /* VS Code keyword blue */
+  }
